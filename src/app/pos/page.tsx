@@ -27,6 +27,14 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   Field,
   FieldContent,
   FieldLabel,
@@ -61,6 +69,7 @@ export default function POSPage() {
   const [isNameError, setIsNameError] = useState(false);
   const [isCheckingOut, setIsCheckingOut] = useState(false);
   const [editingNoteId, setEditingNoteId] = useState<string | null>(null);
+  const [paymentMethod, setPaymentMethod] = useState("Tunai");
 
   const [ingredients, setIngredients] = useState<Ingredient[]>([]);
   const [recipes, setRecipes] = useState<Recipe[]>([]);
@@ -219,7 +228,7 @@ export default function POSPage() {
         .insert([{
           total_price: cartTotal,
           customer_name: customerName,
-          payment_method: "Cash",
+          payment_method: paymentMethod,
           payment_status: "paid",
           source: "pos",
         }])
@@ -242,7 +251,7 @@ export default function POSPage() {
         await updateStock(item.id, item.quantity);
       }
 
-      toast.success(`Berhasil! Pesanan ${customerName} dicatat.`, {
+      toast.success(`Berhasil! Pesanan ${customerName} diproses via ${paymentMethod}.`, {
         icon: <CheckCircle2 className="w-5 h-5 text-emerald-500" />,
       });
       setCart([]);
@@ -484,8 +493,32 @@ export default function POSPage() {
             <AlertDialogContent className="rounded-2xl border-none shadow-3xl p-8">
               <AlertDialogHeader>
                 <AlertDialogTitle className="text-xl font-bold text-slate-900 font-sans tracking-tight">Konfirmasi transaksi?</AlertDialogTitle>
-                <AlertDialogDescription className="text-sm font-medium text-slate-400 leading-relaxed pt-2">Lanjutkan proses pembayaran untuk pesanan <span className="font-bold text-slate-900 font-serif">&quot;{customerName}&quot;</span> sejumlah <span className="font-bold text-slate-900">IDR {cartTotal.toLocaleString("id-ID")}</span>?</AlertDialogDescription>
+                <AlertDialogDescription className="text-sm font-medium text-slate-400 leading-relaxed pt-2">Lanjutkan proses pembayaran untuk pesanan <span className="font-bold text-slate-900 font-serif">&quot;{customerName}&quot;</span>?</AlertDialogDescription>
               </AlertDialogHeader>
+
+              <div className="py-4 border-y border-slate-50 my-6 space-y-4">
+                 <div className="flex justify-between items-center bg-slate-50 p-6 rounded-2xl">
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Total Pembayaran</span>
+                    <span className="font-mono text-3xl font-black text-slate-900 tabular-nums">IDR {cartTotal.toLocaleString("id-ID")}</span>
+                 </div>
+
+                 <Field>
+                    <FieldLabel className="text-[10px] font-bold text-slate-400 uppercase tracking-widest pl-1">Metode Pembayaran</FieldLabel>
+                    <Select value={paymentMethod} onValueChange={setPaymentMethod}>
+                       <SelectTrigger className="h-12 rounded-xl border-slate-100 bg-slate-50/50 font-bold text-slate-900 focus:ring-slate-200">
+                          <SelectValue placeholder="Pilih metode" />
+                       </SelectTrigger>
+                       <SelectContent className="rounded-xl border-slate-100 shadow-2xl">
+                          <SelectGroup>
+                             <SelectItem value="Tunai" className="font-bold py-3 transition-colors">Tunai (Cash)</SelectItem>
+                             <SelectItem value="QRIS" className="font-bold py-3 transition-colors">QRIS</SelectItem>
+                             <SelectItem value="Transfer" className="font-bold py-3 transition-colors">Transfer Bank</SelectItem>
+                          </SelectGroup>
+                       </SelectContent>
+                    </Select>
+                 </Field>
+              </div>
+
               <AlertDialogFooter className="mt-8 gap-3">
                 <AlertDialogCancel className="h-12 rounded-xl flex-1 border-slate-100 font-bold text-slate-500">Batalkan</AlertDialogCancel>
                 <AlertDialogAction onClick={handleCheckout} className="h-12 rounded-xl flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold shadow-xl shadow-slate-900/10">Ya, proses pesanan</AlertDialogAction>

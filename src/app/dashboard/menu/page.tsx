@@ -208,7 +208,7 @@ export default function MenuManagementPage() {
   }
 
   return (
-    <div className="min-h-screen bg-stone-50/50 p-6 md:p-10 space-y-8 font-sans">
+    <div className="min-h-screen bg-slate-50/50 p-6 md:p-10 space-y-8 font-sans">
       
       {/* 1. Header: Administrative Authority */}
       <header className="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -216,12 +216,12 @@ export default function MenuManagementPage() {
            <Badge variant="secondary" className="w-fit bg-emerald-50 text-emerald-600 font-bold tracking-widest uppercase text-[9px] px-3 py-1 rounded-md mb-2 border-emerald-100/50">
              Portal Manajemen Menu
            </Badge>
-           <h1 className="text-2xl font-black tracking-tight text-stone-900 leading-none">Pengelolaan Katalog Menu</h1>
-           <p className="text-xs font-medium text-stone-400 mt-2">Atur harga, kategori, dan detail produk Code & Coffee.</p>
+           <h1 className="text-2xl font-black tracking-tight text-slate-900 leading-none">Pengelolaan Katalog Menu</h1>
+           <p className="text-xs font-medium text-slate-400 mt-2">Atur harga, kategori, dan detail produk Code & Coffee.</p>
         </div>
         <Button 
           onClick={() => openForm()}
-          className="h-11 px-8 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold shadow-xl shadow-stone-900/10 transition-all active:scale-95"
+          className="h-11 px-8 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold shadow-xl shadow-slate-900/10 transition-all active:scale-95"
         >
           <Plus className="w-4 h-4 mr-2" /> Tambah Menu Baru
         </Button>
@@ -230,18 +230,18 @@ export default function MenuManagementPage() {
       {/* 2. Controls: Filtering Infrastructure - Symmetrized */}
       <div className="flex items-center gap-3">
          <div className="relative flex-1">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-300 z-10" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300 z-10" />
             <Input 
               placeholder="Cari nama menu..." 
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              className="h-11 pl-11 rounded-xl bg-white border-stone-200 shadow-none focus-visible:ring-stone-100 font-medium w-full"
+              className="h-11 pl-11 rounded-xl bg-white border-slate-200 shadow-none focus-visible:ring-slate-100 font-medium w-full"
             />
          </div>
          <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-            <SelectTrigger className="h-11 w-[200px] rounded-xl bg-white border-stone-200 shadow-none font-semibold flex items-center">
+            <SelectTrigger className="h-11 w-[200px] rounded-xl bg-white border-slate-200 shadow-none font-semibold flex items-center">
                <div className="flex items-center gap-2">
-                  <Filter className="w-3.5 h-3.5 text-stone-300" />
+                  <Filter className="w-3.5 h-3.5 text-slate-300" />
                   <SelectValue placeholder="Semua Kategori" />
                </div>
             </SelectTrigger>
@@ -253,11 +253,11 @@ export default function MenuManagementPage() {
       </div>
 
       {/* 3. Main Data: Product Registry */}
-      <div className="rounded-xl border border-stone-200/60 bg-white overflow-hidden shadow-sm">
+      <div className="rounded-xl border border-slate-200/60 bg-white overflow-hidden shadow-sm">
          <div className="overflow-x-auto">
             <Table>
                <TableHeader className="bg-slate-50/80">
-                  <TableRow className="border-stone-100 hover:bg-transparent">
+                  <TableRow className="border-slate-100 hover:bg-transparent">
                      <TableHead className="w-12 px-6 h-11"></TableHead>
                      <TableHead className="px-6 h-11 text-xs font-semibold text-slate-500 align-middle">Identitas produk</TableHead>
                      <TableHead className="px-6 h-11 text-xs font-semibold text-slate-500 align-middle">Kategori</TableHead>
@@ -278,7 +278,7 @@ export default function MenuManagementPage() {
                   ) : filteredProducts.length === 0 ? (
                     <TableRow>
                        <TableCell colSpan={5} className="h-64 text-center">
-                          <div className="flex flex-col items-center gap-4 text-stone-200 grayscale opacity-40">
+                          <div className="flex flex-col items-center gap-4 text-slate-200 grayscale opacity-40">
                              <PackageX className="w-12 h-12" />
                              <p className="text-[10px] font-bold tracking-[0.2em] uppercase">Produk tidak ditemukan</p>
                           </div>
@@ -286,9 +286,9 @@ export default function MenuManagementPage() {
                     </TableRow>
                   ) : (
                     filteredProducts.map(product => (
-                      <TableRow key={product.id} className="group border-stone-50 transition-colors hover:bg-stone-50/30">
+                      <TableRow key={product.id} className="group border-slate-50 transition-colors hover:bg-slate-50/30">
                         <TableCell className="px-6">
-                           <div className="w-12 h-12 rounded-lg bg-stone-50 overflow-hidden relative border border-stone-100">
+                           <div className="w-12 h-12 rounded-lg bg-slate-50 overflow-hidden relative border border-slate-100">
                               {product.image_url ? (
                                  <Image src={product.image_url} alt={product.name} fill className="object-cover" />
                               ) : (
@@ -297,15 +297,15 @@ export default function MenuManagementPage() {
                            </div>
                         </TableCell>
                         <TableCell className="px-6">
-                           <p className="text-sm font-bold text-stone-900 tracking-tight leading-none mb-1">{toTitleCase(product.name)}</p>
-                           <p className="text-[10px] font-medium text-stone-400 line-clamp-1 max-w-[200px]">{product.description || 'No description provided'}</p>
+                           <p className="text-sm font-bold text-slate-900 tracking-tight leading-none mb-1">{toTitleCase(product.name)}</p>
+                           <p className="text-[10px] font-medium text-slate-400 line-clamp-1 max-w-[200px]">{product.description || 'No description provided'}</p>
                         </TableCell>
                         <TableCell className="px-6">
-                           <Badge variant="outline" className="text-[10px] font-bold rounded-md bg-stone-50 px-2.5 h-6 border-stone-100 text-stone-400 uppercase tracking-tighter">
+                           <Badge variant="outline" className="text-[10px] font-bold rounded-md bg-slate-50 px-2.5 h-6 border-slate-100 text-slate-400 uppercase tracking-tighter">
                               {product.category}
                            </Badge>
                         </TableCell>
-                        <TableCell className="text-sm font-mono font-bold text-stone-900 tabular-nums px-6 text-left">
+                        <TableCell className="text-sm font-mono font-bold text-slate-900 tabular-nums px-6 text-left">
                            {formatCurrency(product.price)}
                         </TableCell>
                         <TableCell className="px-6 text-right">
@@ -313,7 +313,7 @@ export default function MenuManagementPage() {
                                <Button 
                                  variant="ghost" 
                                  size="icon" 
-                                 className="h-9 w-9 rounded-lg hover:bg-white hover:text-stone-900 hover:shadow-sm"
+                                 className="h-9 w-9 rounded-lg hover:bg-white hover:text-slate-900 hover:shadow-sm"
                                  onClick={() => openForm(product)}
                                >
                                   <Edit2 className="w-4 h-4" />
@@ -341,11 +341,11 @@ export default function MenuManagementPage() {
       {/* Form Modal: Add/Edit */}
       <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
         <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden border-none shadow-3xl rounded-3xl max-h-[90vh] flex flex-col">
-          <DialogHeader className="p-6 bg-stone-50 border-b border-stone-100 space-y-1 shrink-0">
-             <DialogTitle className="text-lg font-bold text-stone-900">
+          <DialogHeader className="p-6 bg-slate-50 border-b border-slate-100 space-y-1 shrink-0">
+             <DialogTitle className="text-lg font-bold text-slate-900">
                {targetProduct ? 'Modifikasi detail menu' : 'Tambah menu baru'}
              </DialogTitle>
-             <DialogDescription className="text-[11px] font-medium text-stone-400 tracking-tight leading-relaxed">
+             <DialogDescription className="text-[11px] font-medium text-slate-400 tracking-tight leading-relaxed">
                Lengkapi informasi produk Code & Coffee dengan akurat untuk tampilan di katalog.
              </DialogDescription>
           </DialogHeader>
@@ -358,7 +358,7 @@ export default function MenuManagementPage() {
                     placeholder="Contoh: Matcha Latte hot"
                     value={formData.name}
                     onChange={e => setFormData({...formData, name: e.target.value})}
-                    className="h-11 rounded-xl border-stone-100 bg-stone-50/30 focus-visible:ring-stone-100 font-bold"
+                    className="h-11 rounded-xl border-slate-100 bg-slate-50/30 focus-visible:ring-slate-100 font-bold"
                     required
                   />
                </Field>
@@ -368,7 +368,7 @@ export default function MenuManagementPage() {
                      <FieldLabel>Kategori</FieldLabel>
                      <FieldDescription>Tentukan penempatan menu di katalog kasir.</FieldDescription>
                      <Select value={formData.category} onValueChange={val => setFormData({...formData, category: val})}>
-                        <SelectTrigger className="h-11 rounded-xl border-stone-100 bg-stone-50/30 font-bold focus:ring-stone-100">
+                        <SelectTrigger className="h-11 rounded-xl border-slate-100 bg-slate-50/30 font-bold focus:ring-slate-100">
                            <SelectValue />
                         </SelectTrigger>
                         <SelectContent position="item-aligned" className="rounded-xl">
@@ -385,7 +385,7 @@ export default function MenuManagementPage() {
                        placeholder="25000"
                        value={formData.price}
                        onChange={e => setFormData({...formData, price: e.target.value})}
-                       className="h-11 rounded-xl border-stone-100 bg-stone-50/30 focus-visible:ring-stone-100 font-mono font-bold tabular-nums"
+                       className="h-11 rounded-xl border-slate-100 bg-slate-50/30 focus-visible:ring-slate-100 font-mono font-bold tabular-nums"
                        required
                      />
                   </Field>
@@ -397,7 +397,7 @@ export default function MenuManagementPage() {
                     placeholder="Tuliskan komposisi atau keunggulan menu..."
                     value={formData.description}
                     onChange={e => setFormData({...formData, description: e.target.value})}
-                    className="rounded-xl border-stone-100 bg-stone-50/30 focus-visible:ring-stone-100 font-medium min-h-[80px]"
+                    className="rounded-xl border-slate-100 bg-slate-50/30 focus-visible:ring-slate-100 font-medium min-h-[80px]"
                   />
                </Field>
 
@@ -407,17 +407,17 @@ export default function MenuManagementPage() {
                     placeholder="https://..."
                     value={formData.image_url}
                     onChange={e => setFormData({...formData, image_url: e.target.value})}
-                    className="h-11 rounded-xl border-stone-100 bg-stone-50/30 focus-visible:ring-stone-100 font-medium"
+                    className="h-11 rounded-xl border-slate-100 bg-slate-50/30 focus-visible:ring-slate-100 font-medium"
                   />
                </Field>
              </FieldGroup>
           </form>
 
-          <DialogFooter className="p-6 bg-white border-t border-stone-50 shrink-0">
+          <DialogFooter className="p-6 bg-white border-t border-slate-50 shrink-0">
              <Button 
                onClick={handleSave}
                disabled={isSubmitting}
-               className="w-full h-12 rounded-2xl bg-stone-900 hover:bg-stone-800 text-white font-bold shadow-2xl shadow-stone-900/10 transition-all active:scale-95"
+               className="w-full h-12 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold shadow-2xl shadow-slate-900/10 transition-all active:scale-95"
              >
                {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : targetProduct ? 'Perbarui detail menu' : 'Simpan produk baru'}
              </Button>
@@ -432,13 +432,13 @@ export default function MenuManagementPage() {
             <div className="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center mb-6 ring-8 ring-red-50/50">
                <Trash2 className="w-7 h-7 text-red-500" />
             </div>
-            <AlertDialogTitle className="text-xl font-bold text-stone-900">Hapus menu ini?</AlertDialogTitle>
-            <AlertDialogDescription className="text-sm font-medium text-stone-400 leading-relaxed pt-2">
-              Tindakan ini tidak dapat dibatalkan. Menu <span className="font-bold text-stone-900 font-serif">&quot;{targetProduct?.name}&quot;</span> akan dihapus selamanya dari katalog operasional.
+            <AlertDialogTitle className="text-xl font-bold text-slate-900">Hapus menu ini?</AlertDialogTitle>
+            <AlertDialogDescription className="text-sm font-medium text-slate-400 leading-relaxed pt-2">
+              Tindakan ini tidak dapat dibatalkan. Menu <span className="font-bold text-slate-900 font-serif">&quot;{targetProduct?.name}&quot;</span> akan dihapus selamanya dari katalog operasional.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter className="mt-8 gap-3">
-            <AlertDialogCancel className="h-12 rounded-xl flex-1 border-stone-100 font-bold text-stone-500">Batalkan</AlertDialogCancel>
+            <AlertDialogCancel className="h-12 rounded-xl flex-1 border-slate-100 font-bold text-slate-500">Batalkan</AlertDialogCancel>
             <AlertDialogAction 
               onClick={(e: React.MouseEvent) => { e.preventDefault(); handleDelete(); }}
               disabled={isSubmitting}

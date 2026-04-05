@@ -23,7 +23,7 @@ function Calendar({
         months: "flex flex-col sm:flex-row gap-8",
         month: "space-y-4",
         month_caption: "flex justify-center pt-1 relative items-center mb-4",
-        caption_label: "text-sm font-bold text-stone-900",
+        caption_label: "text-sm font-bold text-slate-900",
         nav: "flex items-center",
         button_previous: cn(
           buttonVariants({ variant: "outline" }),
@@ -36,23 +36,23 @@ function Calendar({
         month_grid: "w-full border-collapse space-y-1",
         weekdays: "flex justify-between",
         weekday:
-          "text-stone-400 rounded-md w-9 font-bold text-[0.7rem] uppercase tracking-tighter text-center",
+          "text-slate-400 rounded-md w-9 font-bold text-[0.7rem] uppercase tracking-tighter text-center",
         week: "flex w-full mt-1 justify-between",
         day: "h-9 w-9 text-center text-sm p-0 relative focus-within:relative focus-within:z-20",
         day_button: cn(
           buttonVariants({ variant: "ghost" }),
-          "h-9 w-9 p-0 font-medium aria-selected:opacity-100 hover:bg-stone-100 hover:text-stone-900 rounded-lg transition-all"
+          "h-9 w-9 p-0 font-medium aria-selected:opacity-100 hover:bg-slate-100 hover:text-slate-900 rounded-lg transition-all"
         ),
         range_start: "day-range-start",
         range_end: "day-range-end",
         selected:
-          "bg-stone-900 text-stone-50 hover:bg-stone-900 hover:text-stone-50 focus:bg-stone-900 focus:text-stone-50 rounded-lg",
-        today: "bg-stone-100 text-stone-900 rounded-lg",
+          "bg-slate-900 text-slate-50 hover:bg-slate-900 hover:text-slate-50 focus:bg-slate-900 focus:text-slate-50 rounded-lg",
+        today: "bg-slate-100 text-slate-900 rounded-lg",
         outside:
-          "day-outside text-stone-300 opacity-50 aria-selected:bg-stone-100/50 aria-selected:text-stone-400 aria-selected:opacity-30",
-        disabled: "text-stone-400 opacity-50",
+          "day-outside text-slate-300 opacity-50 aria-selected:bg-slate-100/50 aria-selected:text-slate-400 aria-selected:opacity-30",
+        disabled: "text-slate-400 opacity-50",
         range_middle:
-          "aria-selected:bg-stone-100 aria-selected:text-stone-900 !rounded-none first:rounded-l-lg last:rounded-r-lg",
+          "aria-selected:bg-slate-100 aria-selected:text-slate-900 !rounded-none first:rounded-l-lg last:rounded-r-lg",
         hidden: "invisible",
         ...classNames,
       }}

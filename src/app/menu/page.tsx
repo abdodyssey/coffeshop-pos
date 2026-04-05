@@ -79,19 +79,19 @@ export default function DigitalMenuPage() {
   }
 
   return (
-    <div className="min-h-screen w-full bg-white font-sans selection:bg-stone-900 selection:text-white flex flex-col relative text-stone-950">
+    <div className="min-h-screen w-full bg-white font-sans selection:bg-slate-900 selection:text-white flex flex-col relative text-slate-950">
       
       {/* HEADER: Catalog Hero Section */}
-      <header className="bg-white px-6 pt-20 pb-12 md:px-16 shrink-0 border-b border-stone-50">
+      <header className="bg-white px-6 pt-20 pb-12 md:px-16 shrink-0 border-b border-slate-50">
         <div className="max-w-6xl mx-auto space-y-6">
           <div className="space-y-4">
-            <Badge variant="secondary" className="w-fit bg-stone-100 text-stone-500 font-semibold tracking-widest uppercase text-[9px] px-4 py-1 rounded-full border-none">
+            <Badge variant="secondary" className="w-fit bg-slate-100 text-slate-500 font-semibold tracking-widest uppercase text-[9px] px-4 py-1 rounded-full border-none">
               Digital Menu Catalog
             </Badge>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-stone-950 leading-[1.1]">
-               Welcome to <br /> <span className="text-stone-300 font-medium">Code & Coffee.</span>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-slate-950 leading-[1.1]">
+               Welcome to <br /> <span className="text-slate-300 font-medium">Code & Coffee.</span>
             </h1>
-            <p className="text-base md:text-lg text-stone-400 font-medium max-w-md leading-relaxed">
+            <p className="text-base md:text-lg text-slate-400 font-medium max-w-md leading-relaxed">
                Fueling your logic, one cup at a time.
             </p>
           </div>
@@ -100,7 +100,7 @@ export default function DigitalMenuPage() {
 
       {/* CATEGORY TABS: Pure Navigation */}
       <Tabs defaultValue="Coffee" className="flex-1 flex flex-col min-h-0">
-        <div className="sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b border-stone-100 px-6 md:px-16 shrink-0 overflow-x-auto scrollbar-hide py-4">
+        <div className="sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b border-slate-100 px-6 md:px-16 shrink-0 overflow-x-auto scrollbar-hide py-4">
           <div className="max-w-6xl mx-auto">
             <TabsList className="bg-transparent h-fit w-fit flex gap-4 p-0">
               {categories.map(cat => (
@@ -108,9 +108,9 @@ export default function DigitalMenuPage() {
                   key={cat} 
                   value={cat}
                   className={cn(
-                    "rounded-full px-8 py-3 text-sm font-bold tracking-tight transition-all border border-stone-100",
-                    "data-[state=active]:bg-stone-950 data-[state=active]:text-white data-[state=active]:border-stone-950 data-[state=active]:shadow-xl",
-                    "bg-stone-50 text-stone-400"
+                    "rounded-full px-8 py-3 text-sm font-bold tracking-tight transition-all border border-slate-100",
+                    "data-[state=active]:bg-slate-950 data-[state=active]:text-white data-[state=active]:border-slate-950 data-[state=active]:shadow-xl",
+                    "bg-slate-50 text-slate-400"
                   )}
                 >
                   {cat}
@@ -121,7 +121,7 @@ export default function DigitalMenuPage() {
         </div>
 
         {/* PRODUCTS GRID: High-Density Catalog */}
-        <div className="flex-1 bg-stone-50/20">
+        <div className="flex-1 bg-slate-50/20">
           <div className="max-w-6xl mx-auto px-6 md:px-16 py-16 pb-32">
             {errorStatus && (
                <div className="bg-red-50 border border-red-100 rounded-2xl p-8 text-center space-y-4 mb-8">
@@ -153,13 +153,13 @@ export default function DigitalMenuPage() {
                               <Card 
                                 key={product.id} 
                                 className={cn(
-                                  "group border border-stone-100 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-2xl hover:shadow-stone-950/5 hover:-translate-y-2 transition-all duration-700 rounded-[2rem] overflow-hidden flex flex-col h-full p-1 bg-white relative",
+                                  "group border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-2xl hover:shadow-slate-950/5 hover:-translate-y-2 transition-all duration-700 rounded-[2rem] overflow-hidden flex flex-col h-full p-1 bg-white relative",
                                   soldOut && "grayscale opacity-60"
                                 )}
                               >
                                  {/* Card Header: Product Frame */}
                                  <CardContent className="p-0 space-y-3 flex flex-col h-full">
-                                   <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-stone-50 shrink-0">
+                                   <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-slate-50 shrink-0">
                                       {product.image_url ? (
                                           <Image 
                                             src={product.image_url} 
@@ -170,15 +170,15 @@ export default function DigitalMenuPage() {
                                             className="object-cover transition-transform duration-1000 group-hover:scale-110" 
                                           />
                                       ) : (
-                                         <div className="w-full h-full flex flex-col items-center justify-center text-stone-200 bg-stone-50">
+                                         <div className="w-full h-full flex flex-col items-center justify-center text-slate-200 bg-slate-50">
                                             <Coffee className="w-12 h-12" />
                                          </div>
                                       )}
 
                                       {/* Central Sold Out Overlay */}
                                       {soldOut && (
-                                        <div className="absolute inset-0 bg-stone-900/40 backdrop-blur-[2px] flex items-center justify-center z-10">
-                                          <div className="bg-stone-950 text-white px-5 py-2 rounded-full shadow-2xl scale-110">
+                                        <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-[2px] flex items-center justify-center z-10">
+                                          <div className="bg-slate-950 text-white px-5 py-2 rounded-full shadow-2xl scale-110">
                                             <p className="text-[10px] font-black tracking-[0.3em] uppercase">Habis</p>
                                           </div>
                                         </div>
@@ -187,14 +187,14 @@ export default function DigitalMenuPage() {
                                    
                                    {/* Text Area */}
                                    <div className="px-6 pb-6 mt-3 space-y-1 flex-1">
-                                      <h3 className="text-lg font-bold text-stone-950 tracking-tight leading-tight">
+                                      <h3 className="text-lg font-bold text-slate-950 tracking-tight leading-tight">
                                         {toTitleCase(product.name)}
                                       </h3>
-                                      <p className="text-sm font-medium text-stone-500 tabular-nums">
+                                      <p className="text-sm font-medium text-slate-500 tabular-nums">
                                         IDR {product.price.toLocaleString('id-ID')}
                                       </p>
                                       
-                                      <p className="text-[10px] text-stone-400 font-light leading-relaxed line-clamp-2 mt-3 opacity-90">
+                                      <p className="text-[10px] text-slate-400 font-light leading-relaxed line-clamp-2 mt-3 opacity-90">
                                         {product.description || "The finest craft selected for your daily caffeine intake."}
                                       </p>
                                    </div>
@@ -211,8 +211,8 @@ export default function DigitalMenuPage() {
       </Tabs>
 
       {/* FOOTER: Minimalist Attribution */}
-      <footer className="py-16 border-t border-stone-50 bg-white px-6 md:px-16 text-center shrink-0">
-         <p className="text-[10px] font-bold text-stone-200 uppercase tracking-[0.4em]">
+      <footer className="py-16 border-t border-slate-50 bg-white px-6 md:px-16 text-center shrink-0">
+         <p className="text-[10px] font-bold text-slate-200 uppercase tracking-[0.4em]">
            &copy; 2026 Code & Coffee &bull; Engineered by Devtective
          </p>
       </footer>

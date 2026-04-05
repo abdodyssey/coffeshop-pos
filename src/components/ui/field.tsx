@@ -48,7 +48,7 @@ const FieldLabel = React.forwardRef<
   <label
     ref={ref}
     className={cn(
-      "text-[10px] font-bold uppercase tracking-widest text-stone-400 opacity-60",
+      "text-[10px] font-bold uppercase tracking-widest text-slate-400 opacity-60",
       className
     )}
     {...props}
@@ -62,7 +62,7 @@ const FieldDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-[10px] text-stone-400 font-medium tracking-tight opacity-60", className)}
+    className={cn("text-[10px] text-slate-400 font-medium tracking-tight opacity-60", className)}
     {...props}
   />
 ))

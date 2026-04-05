@@ -120,28 +120,28 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-stone-50/50 p-6 md:p-10 space-y-8 font-sans">
+    <div className="min-h-screen bg-slate-50/50 p-6 md:p-10 space-y-8 font-sans">
       
       {/* 1. Header: Pure Motivation */}
       <header className="flex flex-col md:flex-row items-center justify-between gap-6 mb-2">
          <div className="text-left w-full">
-            <h1 className="text-2xl font-black tracking-tight text-stone-900 leading-none">Dashboard</h1>
-            <p className="text-xs font-medium text-stone-400 mt-2 italic focus-within:not-italic">Visualisasi performa operasional Coffee & Code.</p>
+            <h1 className="text-2xl font-black tracking-tight text-slate-900 leading-none">Dashboard</h1>
+            <p className="text-xs font-medium text-slate-400 mt-2 italic focus-within:not-italic">Visualisasi performa operasional Coffee & Code.</p>
          </div>
-         <Button variant="outline" size="sm" onClick={fetchData} disabled={loading} className="rounded-full h-9 px-5 bg-white border-stone-100 shadow-sm text-[10px] font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-all">
+         <Button variant="outline" size="sm" onClick={fetchData} disabled={loading} className="rounded-full h-9 px-5 bg-white border-slate-100 shadow-sm text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-slate-900 hover:bg-slate-50 transition-all">
             <RefreshCw className={cn("w-3.5 h-3.5 mr-2.5", loading && "animate-spin")} /> Update data
          </Button>
       </header>
 
       {/* 2. Primary Metrics: Industrial Display */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-         <Card className="shadow-none border-stone-200/60 rounded-2xl bg-white overflow-hidden group">
+         <Card className="shadow-none border-slate-200/60 rounded-2xl bg-white overflow-hidden group">
             <CardContent className="p-6 flex items-center justify-between">
                <div className="space-y-1.5">
-                  <p className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.2em] leading-none mb-1">Omzet Hari Ini</p>
-                  <h3 className="text-2xl font-black tracking-tighter text-stone-900 font-mono">
-                    {formatCurrency(metrics.todayRevenue)}
-                  </h3>
+                   <p className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] leading-none mb-1">Omzet Hari Ini</p>
+                   <h3 className="text-2xl font-black tracking-tighter text-slate-900 font-mono">
+                     {formatCurrency(metrics.todayRevenue)}
+                   </h3>
                </div>
                <div className="h-12 w-12 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600 transition-all group-hover:scale-110 shadow-sm shadow-emerald-500/5">
                   <TrendingUp className="w-5 h-5" />
@@ -150,22 +150,22 @@ export default function DashboardPage() {
          </Card>
 
          <Card className={cn(
-            "shadow-none border-stone-200/60 rounded-2xl bg-white overflow-hidden group transition-all",
+            "shadow-none border-slate-200/60 rounded-2xl bg-white overflow-hidden group transition-all",
             metrics.criticalCount > 0 && "ring-1 ring-red-500/20"
          )}>
             <CardContent className="p-6 flex items-center justify-between">
                <div className="space-y-1.5">
-                  <p className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.2em] leading-none mb-1">Bahan Baku Kritis</p>
-                  <h3 className={cn(
-                    "text-2xl font-black tracking-tighter font-mono",
-                    metrics.criticalCount > 0 ? "text-red-600" : "text-stone-900"
-                  )}>
-                    {metrics.criticalCount} <span className="text-[10px] font-black uppercase text-stone-300 ml-1 tracking-widest">SKU</span>
-                  </h3>
+                   <p className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] leading-none mb-1">Bahan Baku Kritis</p>
+                   <h3 className={cn(
+                     "text-2xl font-black tracking-tighter font-mono",
+                     metrics.criticalCount > 0 ? "text-red-600" : "text-slate-900"
+                   )}>
+                     {metrics.criticalCount} <span className="text-[10px] font-mono font-black uppercase text-slate-500 ml-1 tracking-widest">SKU</span>
+                   </h3>
                </div>
                <div className={cn(
                  "h-12 w-12 rounded-2xl flex items-center justify-center transition-all group-hover:scale-110 shadow-sm",
-                 metrics.criticalCount > 0 ? "bg-red-50 text-red-600 shadow-red-500/5" : "bg-stone-50 text-stone-400 shadow-stone-500/5"
+                 metrics.criticalCount > 0 ? "bg-red-50 text-red-600 shadow-red-500/5" : "bg-slate-50 text-slate-400 shadow-slate-500/5"
                )}>
                   <AlertTriangle className="w-5 h-5" />
                </div>
@@ -179,15 +179,15 @@ export default function DashboardPage() {
             )}
          </Card>
 
-         <Card className="shadow-none border-stone-200/60 rounded-2xl bg-white overflow-hidden group">
+         <Card className="shadow-none border-slate-200/60 rounded-2xl bg-white overflow-hidden group">
             <CardContent className="p-6 flex items-center justify-between">
                <div className="space-y-1.5">
-                  <p className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.2em] leading-none mb-1">Total Menu Aktif</p>
-                  <h3 className="text-2xl font-black tracking-tighter text-stone-900 font-mono">
-                    {metrics.activeMenuCount} <span className="text-[10px] font-black uppercase text-stone-300 ml-1 tracking-widest">Item</span>
-                  </h3>
+                   <p className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] leading-none mb-1">Total Menu Aktif</p>
+                   <h3 className="text-2xl font-black tracking-tighter text-slate-900 font-mono">
+                     {metrics.activeMenuCount} <span className="text-[10px] font-mono font-black uppercase text-slate-500 ml-1 tracking-widest">Item</span>
+                   </h3>
                </div>
-               <div className="h-12 w-12 rounded-2xl bg-stone-50 flex items-center justify-center text-stone-400 group-hover:bg-stone-900 group-hover:text-white transition-all shadow-sm shadow-stone-500/5">
+               <div className="h-12 w-12 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-slate-900 group-hover:text-white transition-all shadow-sm shadow-slate-500/5">
                   <Coffee className="w-5 h-5" />
                </div>
             </CardContent>
@@ -195,15 +195,16 @@ export default function DashboardPage() {
       </div>
 
       {/* 3. Performance Graph: Simple Aesthetic Visualization */}
-      <Card className="shadow-none border-stone-200/60 rounded-2xl bg-white overflow-hidden p-8">
+      <Card className="shadow-none border-slate-200/60 rounded-2xl bg-white overflow-hidden p-8">
         <div className="flex items-center justify-between mb-10">
           <div>
-            <CardTitle className="text-sm font-bold flex items-center gap-3 text-stone-900 tracking-tight">
+            <CardTitle className="text-sm font-bold flex items-center gap-3 text-slate-900 tracking-tight">
               <TrendingUp className="w-4 h-4 text-emerald-500" /> Performa Penjualan
             </CardTitle>
-            <p className="text-[10px] text-stone-400 mt-2 font-bold tracking-[0.2em] uppercase opacity-60">Insight pendapatan 7 hari terakhir</p>
+            <p className="text-[10px] text-slate-500 font-bold tracking-widest opacity-60 uppercase">Code & Coffee Hub</p>
+            <p className="text-[10px] text-slate-400 mt-2 font-bold tracking-[0.2em] uppercase opacity-60">Insight pendapatan 7 hari terakhir</p>
           </div>
-          <div className="bg-stone-50 px-4 py-2 rounded-xl text-[10px] font-bold text-stone-400 uppercase tracking-widest border border-stone-100">
+          <div className="bg-slate-50 px-4 py-2 rounded-xl text-[10px] font-bold text-slate-400 uppercase tracking-widest border border-slate-100">
              7 Hari Terakhir
           </div>
         </div>
@@ -216,13 +217,13 @@ export default function DashboardPage() {
                 dataKey="name" 
                 axisLine={false} 
                 tickLine={false} 
-                tick={{fontSize: 10, fontWeight: 700, fill: '#A8A29E'}} 
+                tick={{fontSize: 10, fontWeight: 700, fill: '#64748b'}} 
                 dy={15}
               />
               <YAxis 
                 axisLine={false} 
                 tickLine={false} 
-                tick={{fontSize: 10, fontWeight: 700, fill: '#A8A29E'}} 
+                tick={{fontSize: 10, fontWeight: 700, fill: '#64748b'}} 
                 dx={-10}
                 tickFormatter={(val) => `Rp${val/1000}k`}
               />
@@ -239,9 +240,9 @@ export default function DashboardPage() {
               <Line 
                 type="monotone" 
                 dataKey="total" 
-                stroke="#1c1917" 
+                stroke="#0f172a" 
                 strokeWidth={4} 
-                dot={{r: 4, fill: '#1c1917', strokeWidth: 0}}
+                dot={{r: 4, fill: '#0f172a', strokeWidth: 0}}
                 activeDot={{r: 6, strokeWidth: 0, fill: '#10b981'}}
                 animationDuration={2000}
               />

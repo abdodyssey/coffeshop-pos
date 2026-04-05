@@ -158,12 +158,12 @@ export default function OpnamePage() {
       <Card className="shadow-sm border-neutral-200/60 rounded-md bg-white overflow-hidden">
         <CardHeader className="p-8 border-b border-neutral-50 px-8 flex flex-row items-center justify-between">
            <div>
-              <CardTitle className="text-base font-bold flex items-center gap-3 text-stone-900">
-                <ClipboardCheck className="w-5 h-5 text-stone-400" />
+              <CardTitle className="text-base font-bold flex items-center gap-3 text-slate-900">
+                <ClipboardCheck className="w-5 h-5 text-slate-400" />
                 Daftar Audit Bahan Baku
               </CardTitle>
            </div>
-           <Badge variant="outline" className="text-[10px] font-bold tracking-widest uppercase border-stone-200 text-stone-400">
+           <Badge variant="outline" className="text-[10px] font-bold tracking-widest uppercase border-slate-200 text-slate-400">
               {ingredients.length} Bahan baku
            </Badge>
         </CardHeader>
@@ -182,11 +182,11 @@ export default function OpnamePage() {
                 const diff = getDiff(ing.id, ing.current_stock)
                 
                 return (
-                  <TableRow key={ing.id} className="hover:bg-stone-50 transition-colors border-neutral-50">
-                    <TableCell className="py-5 px-8 font-bold text-stone-900 text-sm">
+                  <TableRow key={ing.id} className="hover:bg-slate-50 transition-colors border-neutral-50">
+                    <TableCell className="py-5 px-8 font-bold text-slate-900 text-sm">
                       {ing.name}
                     </TableCell>
-                    <TableCell className="py-5 text-sm font-bold text-stone-400 tabular-nums">
+                    <TableCell className="py-5 text-sm font-bold text-slate-400 tabular-nums">
                       {ing.current_stock.toLocaleString('id-ID')} <span className="text-[10px] uppercase font-bold ml-1">{ing.unit}</span>
                     </TableCell>
                     <TableCell className="py-5">
@@ -195,7 +195,7 @@ export default function OpnamePage() {
                          placeholder="Isi stok fisik..."
                          className={cn(
                            "h-10 rounded-md border-neutral-200 bg-neutral-50/50 focus:bg-white text-sm font-bold transition-all",
-                           physicalAmounts[ing.id] ? "border-stone-900 ring-offset-2 ring-1 ring-stone-900/10" : ""
+                           physicalAmounts[ing.id] ? "border-slate-900 ring-offset-2 ring-1 ring-slate-900/10" : ""
                          )}
                          value={physicalAmounts[ing.id] || ''}
                          onChange={(e) => handleInputChange(ing.id, e.target.value)}
@@ -226,7 +226,7 @@ export default function OpnamePage() {
            size="lg" 
            onClick={handleSaveOpname}
            disabled={isSubmitting || Object.keys(physicalAmounts).length === 0}
-           className="w-full md:w-auto md:min-w-[320px] h-14 rounded-md text-base font-bold bg-stone-900 hover:bg-stone-800 shadow-2xl shadow-stone-900/20 transition-all hover:scale-[0.99] active:scale-[0.97]"
+           className="w-full md:w-auto md:min-w-[320px] h-14 rounded-md text-base font-bold bg-slate-900 hover:bg-slate-800 shadow-2xl shadow-slate-900/20 transition-all hover:scale-[0.99] active:scale-[0.97]"
          >
            {isSubmitting ? (
              <RefreshCw className="w-5 h-5 animate-spin mr-3" /> 

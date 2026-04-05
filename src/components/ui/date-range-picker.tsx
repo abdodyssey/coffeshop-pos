@@ -26,19 +26,19 @@ export function DatePickerWithRange({
 }) {
   return (
     <Field className={cn("w-72 md:w-80", className)}>
-      <FieldLabel htmlFor="date-picker-range" className="text-[10px] font-bold text-stone-400 uppercase tracking-widest pl-1">Periode Laporan</FieldLabel>
+      <FieldLabel htmlFor="date-picker-range" className="text-[10px] font-bold text-slate-400 uppercase tracking-widest pl-1">Periode Laporan</FieldLabel>
       <Popover>
         <PopoverTrigger asChild>
           <Button
             variant="outline"
             id="date-picker-range"
             className={cn(
-              "justify-start px-3 h-11 rounded-xl border-stone-200 shadow-none hover:bg-stone-50 group transition-all active:scale-[0.98]",
-              !date && "text-stone-500"
+              "justify-start px-3 h-11 rounded-xl border-slate-200 shadow-none hover:bg-slate-50 group transition-all active:scale-[0.98]",
+              !date && "text-slate-500"
             )}
           >
-            <CalendarIcon className="mr-2.5 h-4 w-4 text-stone-400 group-hover:text-stone-900 transition-colors" />
-            <span className="font-bold text-stone-900">
+            <CalendarIcon className="mr-2.5 h-4 w-4 text-slate-400 group-hover:text-slate-900 transition-colors" />
+            <span className="font-bold text-slate-900">
               {date?.from ? (
                 date.to ? (
                   <>
@@ -55,7 +55,7 @@ export function DatePickerWithRange({
           </Button>
         </PopoverTrigger>
         <PopoverContent 
-          className="w-auto p-0 rounded-2xl border-stone-100 shadow-2xl" 
+          className="w-auto p-0 rounded-2xl border-slate-100 shadow-2xl" 
           align="end"
           alignOffset={-4}
         >

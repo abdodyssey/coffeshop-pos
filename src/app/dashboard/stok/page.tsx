@@ -300,34 +300,34 @@ export default function StokOpnamePage() {
       return <Badge variant="destructive" className="text-[11px] font-bold rounded-md px-2.5 py-0.5 shadow-sm shadow-red-500/20">Kritis</Badge>;
     }
     if (daysLeft === "unknown" || daysLeft === "calculating")
-      return <Badge variant="secondary" className="text-[10px] font-medium rounded-md px-2.5 py-1 bg-stone-50 border-stone-100 text-stone-400">{daysLeft === 'calculating' ? 'Menghitung...' : 'Data minim'}</Badge>;
+      return <Badge variant="secondary" className="text-[10px] font-medium rounded-md px-2.5 py-1 bg-slate-50 border-slate-100 text-slate-400">{daysLeft === 'calculating' ? 'Menghitung...' : 'Data minim'}</Badge>;
     const days = Number(daysLeft);
     if (days <= 7) return <Badge className="text-[11px] bg-amber-50 text-amber-600 hover:bg-amber-50 border-amber-200 rounded-md px-2.5 py-0.5 shadow-sm shadow-amber-500/5">Waspada</Badge>;
     return <Badge className="text-[11px] bg-emerald-50 text-emerald-600 hover:bg-emerald-50 border-emerald-200 rounded-md px-2.5 py-0.5 shadow-sm shadow-emerald-500/5">Aman</Badge>;
   };
 
   return (
-    <div className="min-h-screen bg-stone-50/50 p-6 md:p-10 space-y-8 font-sans">
+    <div className="min-h-screen bg-slate-50/50 p-6 md:p-10 space-y-8 font-sans">
        {/* Sidebar Logic Header */}
        <header className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-             <h1 className="text-2xl font-black tracking-tight text-stone-900 leading-none">Stok & Opname</h1>
-             <p className="text-xs font-medium text-stone-400 mt-2">Manajemen persediaan bahan baku dan audit digital.</p>
+             <h1 className="text-2xl font-black tracking-tight text-slate-900 leading-none">Stok & Opname</h1>
+             <p className="text-xs font-medium text-slate-400 mt-2">Manajemen persediaan bahan baku dan audit digital.</p>
           </div>
        </header>
 
        {/* Bulk Action Toolbar */}
        {selectedRows.length > 0 && (
-          <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 bg-stone-900 text-white px-6 py-4 rounded-[2rem] shadow-2xl flex items-center gap-8 border border-white/10 backdrop-blur-xl animate-in fade-in slide-in-from-bottom-4 duration-300">
+          <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white px-6 py-4 rounded-[2rem] shadow-2xl flex items-center gap-8 border border-white/10 backdrop-blur-xl animate-in fade-in slide-in-from-bottom-4 duration-300">
              <div className="flex items-center gap-4 border-r border-white/10 pr-6">
-                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400">Item Terpilih</span>
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Item Terpilih</span>
                 <Badge className="bg-emerald-500 hover:bg-emerald-600 text-white border-none rounded-full h-6 w-6 flex items-center justify-center p-0 text-[10px] font-black">{selectedRows.length}</Badge>
              </div>
              <div className="flex items-center gap-4">
                  <Button 
                    variant="ghost"
                    onClick={() => setSelectedRows([])}
-                   className="h-10 px-4 text-xs font-bold text-stone-400 hover:text-white hover:bg-white/5 transition-all"
+                   className="h-10 px-4 text-xs font-bold text-slate-400 hover:text-white hover:bg-white/5 transition-all"
                  >
                    Batalkan pilihan
                  </Button>
@@ -340,13 +340,13 @@ export default function StokOpnamePage() {
                   </AlertDialogTrigger>
                   <AlertDialogContent className="rounded-2xl border-none shadow-2xl p-8">
                      <AlertDialogHeader>
-                        <AlertDialogTitle className="text-sm font-bold text-stone-900 font-sans tracking-tight">Hapus bahan baku terpilih?</AlertDialogTitle>
-                        <AlertDialogDescription className="text-[11px] leading-relaxed text-stone-400 font-medium font-sans mt-2">
+                        <AlertDialogTitle className="text-sm font-bold text-slate-900 font-sans tracking-tight">Hapus bahan baku terpilih?</AlertDialogTitle>
+                        <AlertDialogDescription className="text-[11px] leading-relaxed text-slate-400 font-medium font-sans mt-2">
                            Tindakan ini tidak bisa dibatalkan. Sebanyak {selectedRows.length} bahan baku akan dihapus permanen dari sistem.
                         </AlertDialogDescription>
                      </AlertDialogHeader>
                      <AlertDialogFooter className="mt-4 gap-2">
-                        <AlertDialogCancel className="h-11 rounded-lg text-xs font-bold border-stone-100">Batalkan</AlertDialogCancel>
+                        <AlertDialogCancel className="h-11 rounded-lg text-xs font-bold border-slate-100">Batalkan</AlertDialogCancel>
                         <AlertDialogAction onClick={handleDeleteSelected} className="h-11 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-bold border-none">
                            {isSubmitting ? <RefreshCw className="w-4 h-4 animate-spin" /> : "Ya, hapus pilihan"}
                         </AlertDialogAction>
@@ -357,33 +357,33 @@ export default function StokOpnamePage() {
           </div>
        )}
 
-      <div className="rounded-xl border border-stone-200/60 bg-white overflow-hidden shadow-sm">
-         <header className="p-6 border-b border-stone-50 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="rounded-xl border border-slate-200/60 bg-white overflow-hidden shadow-sm">
+         <header className="p-6 border-b border-slate-50 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-               <div className="text-base font-bold flex items-center gap-3 text-stone-900 leading-none">
-                  <Box className="w-4 h-4 text-stone-400" /> Pengelolaan stok bahan baku
+               <div className="text-base font-bold flex items-center gap-3 text-slate-900 leading-none">
+                  <Box className="w-4 h-4 text-slate-400" /> Pengelolaan stok bahan baku
                </div>
-               <div className="text-[10px] text-stone-400 mt-2 font-medium tracking-widest uppercase opacity-60">Wawasan stok digital</div>
+               <div className="text-[10px] text-slate-400 mt-2 font-medium tracking-widest uppercase opacity-60">Wawasan stok digital</div>
             </div>
             
             <div className="flex items-center gap-4">
               <Link href="/dashboard/recipes">
-                <Button variant="outline" className="h-9 px-4 rounded-lg text-xs font-bold border-stone-100 hover:bg-stone-50 text-stone-500 shadow-sm">
-                   <BookOpen className="w-3.5 h-3.5 mr-2 text-stone-400" /> Atur resep
+                <Button variant="outline" className="h-9 px-4 rounded-lg text-xs font-bold border-slate-100 hover:bg-slate-50 text-slate-500 shadow-sm">
+                   <BookOpen className="w-3.5 h-3.5 mr-2 text-slate-400" /> Atur resep
                 </Button>
               </Link>
-              <div className="w-px h-6 bg-stone-100" />
+              <div className="w-px h-6 bg-slate-100" />
 
               <Dialog open={isAddIngredientModalOpen} onOpenChange={setIsAddIngredientModalOpen}>
                  <DialogTrigger asChild>
-                   <Button variant="outline" className="h-9 px-4 rounded-lg text-xs font-bold border-stone-100 hover:bg-stone-50 text-stone-900 shadow-sm">
+                   <Button variant="outline" className="h-9 px-4 rounded-lg text-xs font-bold border-slate-100 hover:bg-slate-50 text-slate-900 shadow-sm">
                      <Plus className="w-3.5 h-3.5 mr-2" /> Tambah bahan baru
                    </Button>
                  </DialogTrigger>
                  <DialogContent className="sm:max-w-[500px] rounded-2xl p-0 overflow-hidden border-none shadow-2xl">
-                   <DialogHeader className="p-6 bg-stone-50 border-b border-stone-100">
-                     <DialogTitle className="text-sm font-bold text-stone-900 font-sans tracking-tight">Registrasi master bahan baku</DialogTitle>
-                     <DialogDescription className="text-[10px] text-stone-400 font-medium tracking-tight opacity-60 mt-1">Daftarkan jenis bahan baku baru.</DialogDescription>
+                   <DialogHeader className="p-6 bg-slate-50 border-b border-slate-100">
+                     <DialogTitle className="text-sm font-bold text-slate-900 font-sans tracking-tight">Registrasi master bahan baku</DialogTitle>
+                     <DialogDescription className="text-[10px] text-slate-400 font-medium tracking-tight opacity-60 mt-1">Daftarkan jenis bahan baku baru.</DialogDescription>
                   </DialogHeader>
                    <form onSubmit={handleCreateIngredient} className="p-8">
                      <FieldGroup>
@@ -432,7 +432,7 @@ export default function StokOpnamePage() {
                         </div>
                      </FieldGroup>
                      <DialogFooter className="mt-8">
-                        <Button type="submit" className="w-full h-12 bg-stone-900 text-white font-bold" disabled={isSubmitting}>
+                        <Button type="submit" className="w-full h-12 bg-slate-900 text-white font-bold" disabled={isSubmitting}>
                            {isSubmitting ? <RefreshCw className="w-4 h-4 animate-spin text-white" /> : "Daftarkan ke gudang utama"}
                         </Button>
                      </DialogFooter>
@@ -440,16 +440,16 @@ export default function StokOpnamePage() {
                  </DialogContent>
               </Dialog>
 
-              <div className="h-6 w-px bg-stone-100" />
+              <div className="h-6 w-px bg-slate-100" />
               <Dialog open={isWasteModalOpen} onOpenChange={setIsWasteModalOpen}>
                 <DialogTrigger asChild>
-                  <Button variant="outline" className="h-9 px-4 rounded-lg text-xs font-bold border-stone-200 text-stone-600 hover:bg-stone-50" onClick={() => setTargetIngredientId(ingredients[0]?.id || "")}>
+                  <Button variant="outline" className="h-9 px-4 rounded-lg text-xs font-bold border-slate-200 text-slate-600 hover:bg-slate-50" onClick={() => setTargetIngredientId(ingredients[0]?.id || "")}>
                      <Trash2 className="w-3.5 h-3.5 mr-2" /> Waste
                   </Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px] rounded-xl p-0 overflow-hidden border-none shadow-2xl">
-                  <DialogHeader className="p-6 bg-stone-50 border-b border-stone-100">
-                     <DialogTitle className="text-sm font-bold text-stone-900 font-sans tracking-tight">Input data waste</DialogTitle>
+                  <DialogHeader className="p-6 bg-slate-50 border-b border-slate-100">
+                     <DialogTitle className="text-sm font-bold text-slate-900 font-sans tracking-tight">Input data waste</DialogTitle>
                   </DialogHeader>
                    <form onSubmit={(e) => handleStockUpdate(e, "Waste")} className="p-6">
                       <FieldGroup>
@@ -496,13 +496,13 @@ export default function StokOpnamePage() {
 
               <Dialog open={isStockInModalOpen} onOpenChange={setIsStockInModalOpen}>
                 <DialogTrigger asChild>
-                  <Button variant="default" className="h-9 px-4 rounded-lg text-xs font-bold bg-stone-900 text-white hover:bg-stone-800" onClick={() => setTargetIngredientId(ingredients[0]?.id || "")}>
+                  <Button variant="default" className="h-9 px-4 rounded-lg text-xs font-bold bg-slate-900 text-white hover:bg-slate-800" onClick={() => setTargetIngredientId(ingredients[0]?.id || "")}>
                      <Plus className="w-3.5 h-3.5 mr-2" /> Stock in
                   </Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px] rounded-xl p-0 overflow-hidden border-none shadow-2xl">
-                   <DialogHeader className="p-6 bg-stone-50 border-b border-stone-100">
-                     <DialogTitle className="text-sm font-bold text-stone-900 font-sans tracking-tight">Portal stok masuk</DialogTitle>
+                   <DialogHeader className="p-6 bg-slate-50 border-b border-slate-100">
+                     <DialogTitle className="text-sm font-bold text-slate-900 font-sans tracking-tight">Portal stok masuk</DialogTitle>
                    </DialogHeader>
                     <form onSubmit={(e) => handleStockUpdate(e, "Restock")} className="p-6">
                       <FieldGroup>
@@ -523,7 +523,7 @@ export default function StokOpnamePage() {
                         </Field>
                       </FieldGroup>
                       <DialogFooter className="mt-8">
-                         <Button type="submit" className="w-full h-12 bg-stone-900 text-white" disabled={isSubmitting}>
+                         <Button type="submit" className="w-full h-12 bg-slate-900 text-white" disabled={isSubmitting}>
                             {isSubmitting ? <RefreshCw className="w-4 h-4 animate-spin" /> : "Simpan stok masuk"}
                          </Button>
                       </DialogFooter>
@@ -536,9 +536,9 @@ export default function StokOpnamePage() {
          <div className="overflow-x-auto">
             <Table>
                <TableHeader className="bg-slate-50/80">
-                <TableRow className="hover:bg-transparent border-stone-100">
+                <TableRow className="hover:bg-transparent border-slate-100">
                   <TableHead className="w-12 px-6 h-11 text-slate-500">
-                     <Checkbox checked={selectedRows.length === ingredients.length && ingredients.length > 0} onCheckedChange={toggleSelectAll} className="border-stone-200 border-2" />
+                     <Checkbox checked={selectedRows.length === ingredients.length && ingredients.length > 0} onCheckedChange={toggleSelectAll} className="border-slate-200 border-2" />
                   </TableHead>
                   <TableHead className="px-6 h-11 text-xs font-semibold text-slate-500 align-middle">Bahan baku</TableHead>
                   <TableHead className="px-6 h-11 text-xs font-semibold text-slate-500 align-middle">Persediaan digital</TableHead>
@@ -554,14 +554,14 @@ export default function StokOpnamePage() {
                   const isSelected = selectedRows.includes(String(ing.id));
                   
                   return (
-                    <TableRow key={ing.id} className={cn("hover:bg-stone-50/30 transition-all border-stone-50 h-16 group", isSelected && "bg-stone-50/50")}>
+                    <TableRow key={ing.id} className={cn("hover:bg-slate-50/30 transition-all border-slate-50 h-16 group", isSelected && "bg-slate-50/50")}>
                        <TableCell className="px-6">
-                          <Checkbox checked={isSelected} onCheckedChange={() => toggleSelectRow(ing.id)} className="border-stone-200 border-2" />
+                          <Checkbox checked={isSelected} onCheckedChange={() => toggleSelectRow(ing.id)} className="border-slate-200 border-2" />
                        </TableCell>
                        <TableCell className="px-6">
                            <div className="flex flex-col text-left">
-                              <span className="text-sm font-bold text-stone-900 tracking-tight leading-none mb-1.5">{ing.name}</span>
-                              <span className="text-[10px] font-mono text-stone-400 leading-none">{ing.unit}</span>
+                               <span className="text-sm font-bold text-slate-900 tracking-tight leading-none mb-1.5">{ing.name}</span>
+                               <span className="text-[10px] font-mono text-slate-500 leading-none">{ing.unit}</span>
                            </div>
                        </TableCell>
                        <TableCell className="min-w-[200px] px-6">
@@ -569,13 +569,13 @@ export default function StokOpnamePage() {
                               <div className="flex-1">
                                  <Progress value={Math.min(100, (Number(ing.current_stock) / Number(ing.ideal_stock)) * 100)} className={cn("h-1.5", Number(ing.current_stock) <= Number(ing.minimum_stock_alert) && "[&>div]:bg-red-500")} />
                               </div>
-                              <span className={cn("text-[11px] font-mono font-bold tabular-nums w-24 text-left", (Number(ing.current_stock) <= Number(ing.minimum_stock_alert) || Number(ing.current_stock) < 0) ? "text-red-600" : "text-stone-900")}>
+                              <span className={cn("text-[11px] font-mono font-bold tabular-nums w-24 text-left", (Number(ing.current_stock) <= Number(ing.minimum_stock_alert) || Number(ing.current_stock) < 0) ? "text-red-600" : "text-slate-900")}>
                                  {Number(ing.current_stock).toLocaleString('id-ID')}
                               </span>
                           </div>
                        </TableCell>
-                       <TableCell className="text-[11px] font-mono font-bold text-stone-500 tabular-nums opacity-80 px-6">
-                          {pred?.daily_average.toFixed(1)} <span className="text-[9px] font-medium opacity-40 ml-1 leading-none">{ing.unit} / hari</span>
+                        <TableCell className="text-[11px] font-mono font-bold text-slate-900 tabular-nums px-6">
+                           {pred?.daily_average.toFixed(1)} <span className="text-[9px] font-mono font-medium text-slate-500 ml-1 leading-none">{ing.unit} / hari</span>
                        </TableCell>
                        <TableCell className="text-left px-6">
                           {getStatusBadge(ing, daysLeft)}
@@ -585,7 +585,7 @@ export default function StokOpnamePage() {
                              <Button 
                                variant="ghost" 
                                size="icon" 
-                               className="h-8 w-8 rounded-lg text-stone-400 hover:text-stone-900 hover:bg-stone-50 transition-all"
+                               className="h-8 w-8 rounded-lg text-slate-400 hover:text-slate-900 hover:bg-slate-50 transition-all"
                                onClick={() => {
                                  setEditingIngredient(ing);
                                  setIsEditModalOpen(true);
@@ -596,19 +596,19 @@ export default function StokOpnamePage() {
 
                              <AlertDialog>
                                 <AlertDialogTrigger asChild>
-                                   <Button variant="ghost" size="icon" className="h-8 w-8 rounded-lg text-stone-400 hover:text-red-500 hover:bg-red-50 transition-all">
+                                   <Button variant="ghost" size="icon" className="h-8 w-8 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50 transition-all">
                                       <Trash2 className="w-3.5 h-3.5" />
                                    </Button>
                                 </AlertDialogTrigger>
                                 <AlertDialogContent className="rounded-2xl border-none shadow-2xl p-8">
                                    <AlertDialogHeader>
-                                      <AlertDialogTitle className="text-sm font-bold text-stone-900 font-sans tracking-tight">Hapus bahan baku?</AlertDialogTitle>
-                                      <AlertDialogDescription className="text-[11px] leading-relaxed text-stone-400 font-medium font-sans">
-                                         Tindakan ini tidak bisa dibatalkan. Stok bahan <span className="font-bold text-stone-900">{ing.name}</span> akan dihapus permanen dari sistem.
+                                      <AlertDialogTitle className="text-sm font-bold text-slate-900 font-sans tracking-tight">Hapus bahan baku?</AlertDialogTitle>
+                                      <AlertDialogDescription className="text-[11px] leading-relaxed text-slate-400 font-medium font-sans">
+                                         Tindakan ini tidak bisa dibatalkan. Stok bahan <span className="font-bold text-slate-900">{ing.name}</span> akan dihapus permanen dari sistem.
                                       </AlertDialogDescription>
                                    </AlertDialogHeader>
                                    <AlertDialogFooter className="mt-4 gap-2">
-                                      <AlertDialogCancel className="h-11 rounded-lg text-xs font-bold border-stone-100">Batalkan</AlertDialogCancel>
+                                      <AlertDialogCancel className="h-11 rounded-lg text-xs font-bold border-slate-100">Batalkan</AlertDialogCancel>
                                       <AlertDialogAction 
                                         onClick={() => handleDeleteItem(ing.id, ing.name)} 
                                         className="h-11 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-bold border-none"
@@ -631,9 +631,9 @@ export default function StokOpnamePage() {
        {/* EDIT MODAL INFRASTRUCTURE */}
        <Dialog open={isEditModalOpen} onOpenChange={setIsEditModalOpen}>
           <DialogContent className="sm:max-w-[500px] rounded-2xl p-0 overflow-hidden border-none shadow-2xl">
-            <DialogHeader className="p-6 bg-stone-50 border-b border-stone-100">
-              <DialogTitle className="text-sm font-bold text-stone-900 font-sans tracking-tight">Update Data Master Bahan</DialogTitle>
-              <DialogDescription className="text-[10px] text-stone-400 font-medium tracking-tight opacity-60 mt-1">Perbarui parameter teknis untuk {editingIngredient?.name}.</DialogDescription>
+            <DialogHeader className="p-6 bg-slate-50 border-b border-slate-100">
+              <DialogTitle className="text-sm font-bold text-slate-900 font-sans tracking-tight">Update Data Master Bahan</DialogTitle>
+              <DialogDescription className="text-[10px] text-slate-400 font-medium tracking-tight opacity-60 mt-1">Perbarui parameter teknis untuk {editingIngredient?.name}.</DialogDescription>
             </DialogHeader>
             {editingIngredient && (
               <form onSubmit={handleUpdateIngredient} className="p-8">
@@ -683,7 +683,7 @@ export default function StokOpnamePage() {
                    </div>
                 </FieldGroup>
                 <DialogFooter className="mt-8">
-                   <Button type="submit" className="w-full h-12 bg-stone-900 text-white font-bold" disabled={isSubmitting}>
+                   <Button type="submit" className="w-full h-12 bg-slate-900 text-white font-bold" disabled={isSubmitting}>
                       {isSubmitting ? <RefreshCw className="w-4 h-4 animate-spin text-white" /> : "Simpan Perubahan Master"}
                    </Button>
                 </DialogFooter>

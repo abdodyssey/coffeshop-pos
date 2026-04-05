@@ -56,12 +56,13 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 import { Textarea } from "@/components/ui/textarea"
+import { ScrollArea } from "@/components/ui/scroll-area"
 import {
   Field,
-  FieldDescription,
   FieldGroup,
   FieldLabel,
-} from "@/components/ui/field";
+  FieldDescription,
+} from "@/components/ui/field"
 
 const CATEGORIES = ["Coffee", "Non-Coffee", "Snack", "Additional"]
 
@@ -230,24 +231,30 @@ export default function MenuManagementPage() {
       {/* 2. Controls: Filtering Infrastructure - Symmetrized */}
       <div className="flex items-center gap-3">
          <div className="relative flex-1">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300 z-10" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 z-10" />
             <Input 
               placeholder="Cari nama menu..." 
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              className="h-11 pl-11 rounded-xl bg-white border-slate-200 shadow-none focus-visible:ring-slate-100 font-medium w-full"
+              className="h-11 pl-11 rounded-xl bg-white border-slate-200 shadow-none focus-visible:ring-slate-100 focus:border-slate-300 font-bold text-sm w-full transition-all hover:border-slate-300"
             />
          </div>
          <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-            <SelectTrigger className="h-11 w-[200px] rounded-xl bg-white border-slate-200 shadow-none font-semibold flex items-center">
-               <div className="flex items-center gap-2">
-                  <Filter className="w-3.5 h-3.5 text-slate-300" />
+            <SelectTrigger className="h-11 w-64 rounded-xl bg-white border-slate-200 shadow-none focus:ring-slate-100 focus:border-slate-300 font-bold text-sm px-4 transition-all hover:border-slate-300">
+               <div className="flex items-center gap-2.5">
+                  <Filter className="w-4 h-4 text-slate-400" />
                   <SelectValue placeholder="Semua Kategori" />
                </div>
             </SelectTrigger>
-            <SelectContent position="popper" className="rounded-xl">
-               <SelectItem value="Semua" className="font-semibold">Semua Kategori</SelectItem>
-               {CATEGORIES.map(cat => <SelectItem key={cat} value={cat} className="font-semibold">{cat}</SelectItem>)}
+            <SelectContent position="popper" className="rounded-xl border-slate-100 shadow-2xl overflow-hidden">
+               <SelectItem value="Semua" className="font-bold text-xs py-3.5 pl-3 transition-colors hover:bg-slate-50">Semua Kategori</SelectItem>
+               <ScrollArea className={CATEGORIES.length > 5 ? "h-64" : "h-auto"}>
+                 {CATEGORIES.map(cat => (
+                   <SelectItem key={cat} value={cat} className="font-bold text-xs py-3.5 pl-3 transition-colors hover:bg-slate-50">
+                     {cat}
+                   </SelectItem>
+                 ))}
+               </ScrollArea>
             </SelectContent>
          </Select>
       </div>

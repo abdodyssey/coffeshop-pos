@@ -47,8 +47,9 @@ export async function setupSeedData() {
     console.log('Seed success with original schema!')
 
     return { success: true, message: 'Database seeded successfully with custom schema!' }
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error'
     console.error('Seed Error Detail:', error)
-    return { success: false, error: error?.message || 'Unknown error' }
+    return { success: false, error: errorMessage }
   }
 }
